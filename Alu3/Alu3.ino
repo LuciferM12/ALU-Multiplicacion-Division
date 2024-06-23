@@ -32,6 +32,7 @@ void loop() {
   int tot = 0;
   int exp = 16;
   int mult = 0;
+  int acum = 0;
   //Inicia 
   if(Serial.available() > 0)
   {
@@ -84,6 +85,8 @@ void loop() {
         escribir(arreglo, arreglo);
         aux4 -= 2;
         while(aux4 > 0){
+          if(!digitalRead((f[4])))
+            acum +=16;
           for(int i = 0; i < 4; i++){
             digitalWrite(b[i],digitalRead(f[3-i])); //Envia el resultado de la op anterior a la ALU
           }
@@ -94,6 +97,7 @@ void loop() {
           tot += i >0 ? digitalRead((f[4-i]))*exp : !(digitalRead((f[4-i])))*exp;
           exp /=2;
         }
+        tot += acum;
         Serial.println((String) "El resultado es: " + tot );
         Serial.println("---------------------------------");
       }
