@@ -6,8 +6,6 @@ int aux = 0, op = 0, aux2 = 0, aux3 = 0, aux4 = 0; //Para realizar operaciones
 int arreglo[4] = {0,0,0,0};
 int arreglo2[4] = {0,0,0,0};
 
-
-
 void setup(){
   //Modo de pines
   for(int i = 0; i < 4; i++){
